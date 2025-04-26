@@ -1,0 +1,93 @@
+**Git & GitHub - Homework Answers**
+
+---
+
+**Purpose of Git Commands:**
+
+- **git status:**
+  Shows the current state of the working directory and the staging area. It lets you see which changes have been staged, which haven't, and which files aren't being tracked.
+
+- **git init:**
+  Initializes a new Git repository in the current directory. It creates a hidden `.git` folder to track version history.
+
+- **git commit:**
+  Records the changes made to the files in the local repository. Commits create a snapshot of your project at that moment.
+
+- **git push:**
+  Uploads the committed changes from your local repository to a remote repository (e.g., GitHub).
+
+---
+
+**Ahmed's Claim about Skipping `git add`:**
+
+I disagree with Ahmed. `git add` is essential because it lets you selectively choose which changes to commit. Without it, you would commit all changes, even ones you may not want to include. This provides more control and helps in creating cleaner and more focused commits.
+
+---
+
+**Questions about Code Hosting Providers:**
+
+- **Two popular platforms besides GitHub:**
+  1. GitLab
+  2. Bitbucket
+
+- **Key features offered by code hosting providers:**
+  - Version control
+  - Collaboration tools (like pull requests and code reviews)
+  - Issue tracking
+  - Continuous integration/continuous deployment (CI/CD)
+
+- **True or False:**
+  True. A team can collaborate on a software project without relying on popular platforms by setting up a self-hosted version control server (e.g., using GitLab CE or Gitea).
+
+---
+
+**About the `-u` flag in `git push -u origin main`:**
+
+The `-u` flag sets the upstream (tracking) reference for the `main` branch. It links the local branch to the remote branch, so in the future, you can simply type `git push` or `git pull` without specifying the remote and branch name.
+
+---
+
+**Practical Part - Linking Git with SSH:**
+
+**Steps and Commands:**
+
+1. **Create a local Git repository:**
+   ```bash
+   git init
+   ```
+
+2. **Create SSH keys (if not already created):**
+   ```bash
+   ssh-keygen -t rsa -b 4096 -C "your_email@example.com"
+   ```
+
+3. **Add SSH key to SSH agent:**
+   ```bash
+   eval "$(ssh-agent -s)"
+   ssh-add ~/.ssh/id_rsa
+   ```
+
+4. **Copy SSH public key:**
+   ```bash
+   cat ~/.ssh/id_rsa.pub
+   ```
+   Then, paste it into your GitHub account under Settings > SSH and GPG Keys > New SSH key.
+
+5. **Clone or set remote using SSH URL:**
+   ```bash
+   git remote add origin git@github.com:yourusername/your-repository.git
+   ```
+
+6. **Push the local repo to GitHub:**
+   ```bash
+   git add .
+   git commit -m "Initial commit"
+   git push -u origin main
+   ```
+
+**Done!**
+
+---
+
+**Prepared by:** [Your Name]
+
